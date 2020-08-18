@@ -1,9 +1,15 @@
 
-// Javascript for an ancient Greek reading web application.
-// App allows users to browse text of Iliad (sourced from Perseus API) 
-// and leave public / private annotations on specific words. 
 
-// Example of recursion at line 266 
+// Javascript for an ancient Greek reading web application for the Iliad. 
+// App allows users to browse text of Iliad (sourced from Perseus API) 
+// and to leave public / private annotations on specific words,
+// as well as save words to personal lists in order to memorize vocabulary. 
+
+// The Javascript works with a Ruby on Rails API Backend, an index.html file, and a index.css file. 
+
+// Example of recursion at line 273 
+
+
 
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -16,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
         return document.createElement(element) 
     }
 
-    // data needed 
+    // data needed for parsing text 
     const bookEnds = {
         book1: 601,  
         book2: 851, 
@@ -157,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }) 
     }
     // <-- end of logging in and signing up 
+
 
     const bottomContainer = qs('div#bottom-container') 
 
@@ -304,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         console.log("end")
                     } 
                 } 
-                // api doing the skip-lines error 
+                // to accomodate common Perseus api error where lines are skipped and appear under wrong numbers
                 else { 
                     let passes = skip + 1
                     let interval = 1 
@@ -427,6 +434,7 @@ document.addEventListener('DOMContentLoaded', function(){
         // <-- end of display text in container functionality 
 
 
+
         // displaying annotations funtionality --> 
 
         let detailsBar = ce('div')
@@ -443,11 +451,8 @@ document.addEventListener('DOMContentLoaded', function(){
         // <-- end of displaying annotations functionality 
 
 
-        // navigation functionality -->  
 
-        // const manualNavNumber = qs('form#go-to-page')
-        // const backTextButton = qs('button#back-text')
-        // const nextTextButton = qs('button#next-text') 
+        // navigation functionality -->  
 
         // go to page with input number, book and line number given 
         // seperated with full stop 
@@ -506,6 +511,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     } // end of textPage() function 
 
+    
     // generalised annotation function --> 
 
         // fetch details on specific word 
